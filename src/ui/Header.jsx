@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import SerachOrder from "../features/order/SerachOrder";
+import Username from "../features/user/Username";
 
 function Header() {
   return (
-    <header className="bg-violet-900 text-xl text-amber-50 p-5 flex">
-      <Link to="/" >Home</Link>
+    <header className="  rounded-b-lg  border-b-4 border-indigo-500 bg-violet-900 p-5 px-4 py-5 text-xl text-amber-50 shadow-2xl">
+      <Link to="/">Home</Link>
       <SerachOrder />
-      <p>Masih</p>
+      <Username/>
     </header>
   );
 }
