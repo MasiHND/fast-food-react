@@ -12,8 +12,9 @@ function SerachOrder() {
     setQuery("");
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className=" ">
       <input
+        className="text-center  border-gray-600 border-2 rounded-lg"
         placeholder="Searach Order #"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
