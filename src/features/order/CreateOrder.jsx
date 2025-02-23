@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import { createOrder } from "../../services/apiRestaurant";
+import SubmitButton from "../../ui/SubmitButton";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
-    str
+    str,
   );
 
 const fakeCart = [
@@ -43,16 +44,21 @@ function CreateOrder() {
     <div>
       <h2>Ready to order? Let's go!</h2>
 
-      <Form method="post">
+      <Form
+        method="post"
+        className="m-auto max-w-auto space-y-4 rounded-3xl bg-gray-700 p-4"
+      >
         <div>
           <label>First Name</label>
-          <input type="text" name="customer" required />
+          <div>
+            <input className="input" type="text" name="customer" required />
+          </div>
         </div>
 
         <div>
           <label>Phone number</label>
           <div>
-            <input type="tel" name="phone" required />
+            <input className="input" type="tel" name="phone" required />
             {formErrors?.phone && <div>{formErrors.phone}</div>}
           </div>
         </div>
@@ -60,12 +66,13 @@ function CreateOrder() {
         <div>
           <label>Address</label>
           <div>
-            <input type="text" name="address" required />
+            <input className="input" type="text" name="address" required />
           </div>
         </div>
 
         <div>
           <input
+            className="h-6 w-6 accent-violet-500 focus:ring-2 focus:ring-violet-700 focus:outline-none"
             type="checkbox"
             name="priority"
             id="priority"
@@ -77,9 +84,9 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <button disabled={isSubmitting}>
-            {isSubmitting ? "Placing Your Order..." : "Order now"}
-          </button>
+          <SubmitButton disabled={isSubmitting}>
+            {isSubmitting ? "Placing Your Order..." : "Order Now"}
+          </SubmitButton>
         </div>
       </Form>
     </div>
@@ -96,11 +103,11 @@ export async function action({ request }) {
   };
 
   const errors = {};
-  if(!isValidPhone(order.phone)) {
+  if (!isValidPhone(order.phone)) {
     errors.phone = "Invalid phone number";
   }
-  if(Object.keys(errors).length > 0) return errors ;
-  
+  if (Object.keys(errors).length > 0) return errors;
+
   const newOrder = await createOrder(order);
   return redirect(`/order/${newOrder.id}`);
 }
