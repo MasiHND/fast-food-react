@@ -1,9 +1,16 @@
-function SubmitButton({children, disabled}) {
+import { useNavigate } from "react-router-dom";
+
+function Button({children, to}) {
+    const navigate = useNavigate();
+
     return (
-        <button disabled={disabled} className="button">
-            {children}
-        </button>
-    )
+      <button
+        className="button"
+        onClick={() => navigate(to)}
+      >
+        {children}
+      </button>
+    );
 }
 
-export default SubmitButton
+export default Button

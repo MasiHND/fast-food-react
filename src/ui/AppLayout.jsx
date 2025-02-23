@@ -10,9 +10,10 @@ function AppLayout() {
   return (
     <div className="grid h-screen grid-rows-[auto_1fr_auto]">
       {isLoading && <Loader />}
+      
       <Header />
 
-      <div className="mt-10 flex overflow-scroll">
+      <div className="py-10 flex overflow-scroll">
         <main className="m-auto max-w-auto rounded-3xl bg-gray-700 p-4">
           <Outlet />
         </main>

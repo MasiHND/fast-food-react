@@ -1,8 +1,9 @@
 function Loader() {
-    return (
-        <div className="loader">            
-        </div>
-    )
+  return (
+    <div className="loading">
+      <div className="loader"></div>
+    </div>
+  );
 }
 
-export default Loader
+export default Loader;
