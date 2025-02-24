@@ -37,40 +37,41 @@ function CreateOrder() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const formErrors = useActionData();
+  const labelClass = "text-semibold text-lg text-left"
   // const [withPriority, setWithPriority] = useState(false);
   const cart = fakeCart;
 
   return (
-    <div>
-      <h2>Ready to order? Let's go!</h2>
+    <div className="px-4 p-6 capitalize">
+      <h2 className="font-shrikhand font-medium text-3xl mb-6">Ready to order? Let's go!</h2>
 
       <Form
         method="post"
-        className="m-auto max-w-auto space-y-4 rounded-3xl bg-gray-700 p-4"
+        className="flex flex-col m-auto max-w-auto space-y-4 rounded-3xl bg-gray-700 p-4"
       >
-        <div>
-          <label>First Name</label>
+        <div className="flex flex-col my-2">
+          <label className={labelClass}>First Name:</label>
           <div>
             <input className="input" type="text" name="customer" required />
           </div>
         </div>
 
-        <div>
-          <label>Phone number</label>
+        <div className="flex flex-col my-2">
+          <label className={labelClass}>Phone number:</label>
           <div>
             <input className="input" type="tel" name="phone" required />
             {formErrors?.phone && <div>{formErrors.phone}</div>}
           </div>
         </div>
 
-        <div>
-          <label>Address</label>
+        <div className="flex flex-col my-2">
+          <label className={labelClass}>Address:</label>
           <div>
             <input className="input" type="text" name="address" required />
           </div>
         </div>
 
-        <div>
+        <div className="mt-6 flex items-center justify-around ">
           <input
             className="h-6 w-6 accent-violet-500 focus:ring-2 focus:ring-violet-700 focus:outline-none"
             type="checkbox"

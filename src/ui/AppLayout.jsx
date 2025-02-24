@@ -13,8 +13,8 @@ function AppLayout() {
       
       <Header />
 
-      <div className="py-10 flex overflow-scroll">
-        <main className="m-auto max-w-auto rounded-3xl bg-gray-700 p-4">
+      <div className="py-10 flex overflow-scroll items-center justify-center">
+        <main className="mx-8 pr-4 lg:pr-8 m-auto max-w-auto rounded-3xl bg-gray-700 p-4">
           <Outlet />
         </main>
       </div>
