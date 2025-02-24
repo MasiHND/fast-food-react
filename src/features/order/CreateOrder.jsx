@@ -49,29 +49,29 @@ function CreateOrder() {
         method="post"
         className="flex flex-col m-auto max-w-auto space-y-4 rounded-3xl bg-gray-700 p-4"
       >
-        <div className="flex flex-col my-2">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <label className={labelClass}>First Name:</label>
-          <div>
+          <div  className="grow">
             <input className="input" type="text" name="customer" required />
           </div>
         </div>
 
-        <div className="flex flex-col my-2">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <label className={labelClass}>Phone number:</label>
-          <div>
-            <input className="input" type="tel" name="phone" required />
-            {formErrors?.phone && <div>{formErrors.phone}</div>}
+          <div  className="grow">
+            <input className="input " type="tel" name="phone" required />
+            {formErrors?.phone && <div className="flex items-center justify-center p-1 text-xs bg-amber-300 rounded-md text-red-700 font-black">{formErrors.phone}</div>}
           </div>
         </div>
 
-        <div className="flex flex-col my-2">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <label className={labelClass}>Address:</label>
-          <div>
+          <div className="grow">
             <input className="input" type="text" name="address" required />
           </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-around ">
+        <div className="mt-6 flex items-center space-x-3  ">
           <input
             className="h-6 w-6 accent-violet-500 focus:ring-2 focus:ring-violet-700 focus:outline-none"
             type="checkbox"
