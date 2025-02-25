@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import SubmitButton from '../../ui/SubmitButton';
+import { useState } from "react";
+import SubmitButton from "../../ui/SubmitButton";
 
 function CreateUser() {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
   }
 
   return (
-    <form onSubmit={handleSubmit} className='p-4' >
+    <form onSubmit={handleSubmit} className="cursor-default p-4">
       <p>👋 Welcome! Please start by telling us your name:</p>
 
       <input
@@ -17,10 +17,10 @@ function CreateUser() {
         placeholder="Your full name"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className='input w-auto mb-10'
+        className="input mb-10 w-auto"
       />
 
-      {username !== '' && (
+      {username !== "" && (
         <div>
           <SubmitButton>Start ordering</SubmitButton>
         </div>

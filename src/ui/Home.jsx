@@ -3,10 +3,10 @@ import CreateUser from "../features/user/CreateUser";
 function Home() {
   return (
     <div className="text-center">
-      <h1 className="font-Chewy mb-8 px-10 text-xl font-light sm:my-12 md:text-3xl">
+      <h1 className="font-Chewy mb-8 cursor-default px-10 text-xl font-light sm:my-12 md:text-3xl">
         The best pizza.
         <br />
-        <span className="text-violet-900 dark:text-amber-400">
+        <span className="cursor-default text-violet-900 dark:text-amber-400">
           Straight out of the oven, straight to you.
         </span>
       </h1>
