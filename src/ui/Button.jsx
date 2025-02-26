@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function Button({ children, to, type }) {
+function Button({ children, to, type, onClick }) {
   const navigate = useNavigate();
 
   const styles = {
@@ -13,6 +13,18 @@ function Button({ children, to, type }) {
     small:
       "py-1 px-2 sm:py-2 sm:px-4 text-xs sm:text-sm mx-8 hover:shadow-blue-500 hover:ring-blue-500 focus:ring-violet-600 bg-violet-600",
   };
+
+  if (onClick) {
+    return (
+      <button
+        onClick={onClick}
+        className={`button ${type ? styles[type] : styles.primary}`}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
     <button
       className={`button ${type ? styles[type] : styles.primary}`}
