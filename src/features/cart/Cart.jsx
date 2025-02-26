@@ -1,36 +1,18 @@
-import { Link } from "react-router-dom";
 import LinkButton from "../../ui/LinkButton";
 import Button from "../../ui/Button";
 import CartItem from "./CartItem";
-import { useSelector } from "react-redux";
+import EmptyCart from "./EmptyCart";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, getCart } from "./cartSlice";
+import { getUser } from "../user/userSlice";
 
-const fakeCart = [
-  {
-    pizzaId: 12,
-    name: "Mediterranean",
-    quantity: 2,
-    unitPrice: 16,
-    totalPrice: 32,
-  },
-  {
-    pizzaId: 6,
-    name: "Vegetale",
-    quantity: 1,
-    unitPrice: 13,
-    totalPrice: 13,
-  },
-  {
-    pizzaId: 11,
-    name: "Spinach and Mushroom sdjfam;ldsafmd sa;mfdksnf",
-    quantity: 1,
-    unitPrice: 15,
-    totalPrice: 15,
-  },
-];
 
 function Cart() {
-  const username = useSelector((state) => state.user.username);
-  const cart = fakeCart;
+  const username = useSelector(getUser);
+  const cart = useSelector(getCart);
+  const dispatch = useDispatch();
+
+  if(!cart.length) return  <EmptyCart/>
 
   return (
     <div className="flex grow flex-col gap-4 px-4 py-3">
@@ -51,7 +33,9 @@ function Cart() {
         <Button type="primary" to="/order/new">
           Order pizzas
         </Button>
-        <Button type="clear">Clear cart</Button>
+        <Button type="clear" onClick={()=>dispatch(clearCart())}>
+          Clear cart
+        </Button>
       </div>
     </div>
   );
