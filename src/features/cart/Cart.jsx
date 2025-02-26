@@ -25,7 +25,7 @@ function Cart() {
       <h2 className="text-2xl font-bold capitalize">Your cart, {username}</h2>
       <ul className="my-7 divide-y divide-solid divide-gray-300">
         {cart.map((i) => (
-          <CartItem item={i} key={i.key} />
+          <CartItem item={i} key={i.id} />
         ))}
       </ul>
 
